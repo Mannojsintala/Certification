@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="jdbc_certification" match-name="certification_technology"/>
+  <table-filter match-catalog="jdbc_certification" match-name="email_template"/>
+  <table-filter match-catalog="jdbc_certification" match-name="exam_question_multiple_answers"/>
+  <table-filter match-catalog="jdbc_certification" match-name="exam_questions"/>
+  <table-filter match-catalog="jdbc_certification" match-name="examination_slot"/>
+  <table-filter match-catalog="jdbc_certification" match-name="payment_details"/>
+  <table-filter match-catalog="jdbc_certification" match-name="profile"/>
+  <table-filter match-catalog="jdbc_certification" match-name="social_auth"/>
+  <table-filter match-catalog="jdbc_certification" match-name="user"/>
+  <table-filter match-catalog="jdbc_certification" match-name="user_role"/>
+  <table-filter match-catalog="jdbc_certification" match-name="user_scorecard"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jan 10, 2018 10:42:17 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="jdbc_certification" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.reverse.ExaminationSlot" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="examination_slot">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.reverse.CertificationTechnology" embed-xml="true" fetch="select" insert="true" name="certificationTechnology" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="certification_id"/>
+        </many-to-one>
+        <many-to-one class="com.reverse.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="user_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="slotTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="Slot_time"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="paymentDetailses" optimistic-lock="true" sort="unsorted" table="payment_details">
+            <key on-delete="noaction">
+                <column name="examination_slot_id"/>
+            </key>
+            <one-to-many class="com.reverse.PaymentDetails" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

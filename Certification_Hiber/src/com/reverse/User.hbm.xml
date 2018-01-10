@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jan 10, 2018 10:42:17 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="jdbc_certification" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.reverse.User" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="user">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.reverse.UserRole" embed-xml="true" fetch="select" insert="true" name="userRole" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="role_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="short" unique="false">
+            <column name="status" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column name="email"/>
+        </property>
+        <property generated="never" lazy="false" name="username" optimistic-lock="true" type="string" unique="false">
+            <column name="username"/>
+        </property>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column name="password"/>
+        </property>
+        <property generated="never" lazy="false" name="authKey" optimistic-lock="true" type="string" unique="false">
+            <column name="auth_key"/>
+        </property>
+        <property generated="never" lazy="false" name="accessToken" optimistic-lock="true" type="string" unique="false">
+            <column name="access_token"/>
+        </property>
+        <property generated="never" lazy="false" name="loggedInIp" optimistic-lock="true" type="string" unique="false">
+            <column name="logged_in_ip"/>
+        </property>
+        <property generated="never" lazy="false" name="loggedInAt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="logged_in_at"/>
+        </property>
+        <property generated="never" lazy="false" name="createdIp" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="created_ip"/>
+        </property>
+        <property generated="never" lazy="false" name="createdAt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="created_at"/>
+        </property>
+        <property generated="never" lazy="false" name="updatedAt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="updated_at"/>
+        </property>
+        <property generated="never" lazy="false" name="bannedAt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="banned_at"/>
+        </property>
+        <property generated="never" lazy="false" name="bannedReason" optimistic-lock="true" type="string" unique="false">
+            <column name="banned_reason"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="paymentDetailses" optimistic-lock="true" sort="unsorted" table="payment_details">
+            <key on-delete="noaction">
+                <column name="user_id"/>
+            </key>
+            <one-to-many class="com.reverse.PaymentDetails" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="userScorecards" optimistic-lock="true" sort="unsorted" table="user_scorecard">
+            <key on-delete="noaction">
+                <column name="user_id"/>
+            </key>
+            <one-to-many class="com.reverse.UserScorecard" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="examinationSlots" optimistic-lock="true" sort="unsorted" table="examination_slot">
+            <key on-delete="noaction">
+                <column name="user_id"/>
+            </key>
+            <one-to-many class="com.reverse.ExaminationSlot" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="socialAuths" optimistic-lock="true" sort="unsorted" table="social_auth">
+            <key on-delete="noaction">
+                <column name="user_id"/>
+            </key>
+            <one-to-many class="com.reverse.SocialAuth" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="profiles" optimistic-lock="true" sort="unsorted" table="profile">
+            <key on-delete="noaction">
+                <column name="user_id"/>
+            </key>
+            <one-to-many class="com.reverse.Profile" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

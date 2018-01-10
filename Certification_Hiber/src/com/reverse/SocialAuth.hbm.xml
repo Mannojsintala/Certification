@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jan 10, 2018 10:42:17 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="jdbc_certification" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.reverse.SocialAuth" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="social_auth">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.reverse.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="user_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="providerName" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="provider_name"/>
+        </property>
+        <property generated="never" lazy="false" name="providerResponse" optimistic-lock="true" type="binary" unique="false">
+            <column name="provider_response"/>
+        </property>
+        <property generated="never" lazy="false" name="providerId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="provider_id"/>
+        </property>
+    </class>
+</hibernate-mapping>
